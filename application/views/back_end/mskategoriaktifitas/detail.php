@@ -20,14 +20,20 @@ $detail = isset($detail) ? $detail : FALSE;
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Nama Kategori *</label>
                         <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="kategori_nama" class="form-control" value="<?php echo $detail ? $detail->kategori_nama : ""; ?>">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_input('kategori_nama', set_value('kategori_nama', $detail ? $detail->kategori_nama : ''), 'class="form-control"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan nama kategori aktifitas.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Keterangan Kategori *</label>
                         <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="kategori_keterangan" class="form-control" value="<?php echo $detail ? $detail->kategori_keterangan : ""; ?>">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_input('kategori_keterangan', set_value('kategori_keterangan', $detail ? $detail->kategori_keterangan : ''), 'class="form-control"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan keterangan kategori aktifitas.</span>
                         </div>
                     </div>

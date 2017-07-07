@@ -15,16 +15,28 @@ $config['appkey'] = '1029384756';
 
 $config['appsalt'] = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
 
-$config['lmanuser.usingbackendfrontend'] = FALSE;
-$config['user_id_column_name'] = "id_user";
-$config['profil_id_column_name'] = "id_profil";
+$config['lmanuser.usingbackendfrontend'] = TRUE;
 
 /**
  * tabel profil lain yang digunakan selain backbone_profil
  */
-$config['another_profil_tablename'] = FALSE;
-$config['another_profil_properties'] = FALSE;
-
+$config['another_profil_tablename'] = "sc_akrifwz.master_pegawai";
+$config['another_profil_properties']['columns'] = array(
+    "pegawai_id",
+    "pegawai_nip",
+    "pegawai_nama"
+);
+$config['another_profil_properties']['related_tables'] = array(
+    "sc_akrifwz.master_jabatan" => array(
+        "fkey" => "jabatan_id",
+        "reference_to" => "sc_akrifwz.master_pegawai",
+        "columns" => array(
+            "keljab_id",
+            "jabatan_nama"
+        ),
+        "referenced" => "LEFT"
+    ),
+);
 $config['backend_login_uri'] = 'back_bone/login';
 
 $config['application_upload_location'] = '_assets/uploads/';
@@ -70,28 +82,32 @@ $config['keyword_key_param'] = 'keyword';
  * modul configuration
  * array("nama_modul"=>array("nama_aksi"=>array("nama_aksi_dikontroller")))
  */
-/**
 $config['modul_action_configuration'] = array(
-    "cdaftar_diklat" => array(
-        "insert" => array("cetak_sttpp", "cetak_sttpp_peserta", "cetak_spt", "detail"),
+    "home" => array(
+        "insert" => array(),
+        "update" => array(),
+        "delete" => array(),
+        "read" => array("index", "lihataktifitas"),
+    ),
+    "setkegiatan" => array(
+        "insert" => array("pilihpegawai", "tambahpegawai", "getkegiatan", "pilihkegiatan", "tambahkegiatan"),
         "update" => array("detail"),
         "delete" => array("delete"),
-        "read" => array("index", "cek_spt"),
+        "read" => array("index"),
     ),
-    "cpeserta_diklat" => array(
-        "insert" => array("upload", "read_and_save_excel_content", "detail"),
-        "update" => array("detail", "read_and_save_excel_content", "upload"),
+    "setaktifitas" => array(
+        "insert" => array("getaktifitas", "pilihaktifitas", "tambahaktifitas", "pilihkegiatan", "tambahkegiatan"),
+        "update" => array("detail"),
         "delete" => array("delete"),
-        "read" => array("index", "get_like"),
+        "read" => array("index"),
     ),
-    "cref_pegawai" => array(
-        "insert" => array("detail", "history_detail"),
-        "update" => array("detail", "history_detail"),
-        "delete" => array("delete"),
-        "read" => array("index", "get_like", "history"),
-    ),
+    "inputaktifitas" => array(
+        "insert" => array("laporan"),
+        "update" => array(""),
+        "delete" => array(""),
+        "read" => array("index"),
+    )
 );
-*/
 
 /**
  * konstanta id role dengan nama role pegawai negeri sipil

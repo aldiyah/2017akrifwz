@@ -15,6 +15,7 @@ class Mskategoriaktifitas extends Back_end {
         $this->set("bread_crumb", array(
             "#" => $this->_header_title
         ));
+        $this->set('access_rules', $this->access_rules());
     }
 
     public function detail($id = FALSE) {

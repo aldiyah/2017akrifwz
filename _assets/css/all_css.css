@@ -9,5 +9,45 @@ and open the template in the editor.
 */
 
 .panel .panel-body.profile {
-    height: 225px;
+}
+.capaian {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 50%;
+    border: 2px solid #000;
+    text-align: center;
+    height: 60px;
+    width: 60px;
+    line-height: 55px;
+}
+th {
+    text-align: center;
+}
+.block {
+    padding: 5px 0;
+}
+.form-horizontal .form-group {
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.pagination.month > li > a {
+    padding: 5px 6px;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td {
+    vertical-align: middle;
+}
+.table .table {
+    margin-bottom: 0;
+}
+.table.table-top td {
+    vertical-align: top;
+}
+table td, th {
+    padding: 2px 4px;
+}
+.panel-primary>.panel-heading {
+    color: #000;
 }

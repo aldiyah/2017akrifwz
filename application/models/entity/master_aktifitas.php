@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Master_aktifitas extends MY_Model {
 
+    public $sort_by = 'aktifitas_kode';
+    public $sort_mode = 'asc';
+
     public function __construct() {
         parent::__construct("master_aktifitas");
         $this->primary_key = "aktifitas_id";

@@ -13,6 +13,9 @@ class Tr_aktifitas extends MY_Model {
 
     protected $attribute_labels = array(
         "tr_aktifitas_id" => array("tr_aktifitas_id", "ID Input Aktifitas"),
+        "pegawai_id" => array("pegawai_id", "Pilih Pegawai"),
+        "tugas_id" => array("tugas_id", "Pilih Tugas"),
+        "kegiatan_id" => array("kegiatan_id", "Pilih Kegiatan"),
         "aktifitas_id" => array("aktifitas_id", "Pilih Aktifitas"),
         "tr_aktifitas_tanggal" => array("tr_aktifitas_tanggal", "Tanggal Aktifitas"),
         "tr_aktifitas_volume" => array("tr_aktifitas_volume", "Aktifitas Volume"),
@@ -23,6 +26,9 @@ class Tr_aktifitas extends MY_Model {
     );
     protected $rules = array(
         array("tr_aktifitas_id", ""),
+        array("pegawai_id", ""),
+        array("tugas_id", ""),
+        array("kegiatan_id", ""),
         array("aktifitas_id", ""),
         array("tr_aktifitas_tanggal", ""),
         array("tr_aktifitas_volume", ""),

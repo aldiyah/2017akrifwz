@@ -2,7 +2,10 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Master_kategori_aktifitas extends LWS_Model {
+class Master_kategori_aktifitas extends MY_Model {
+
+    public $sort_by = 'kategori_nama';
+    public $sort_mode = 'asc';
 
     public function __construct() {
         parent::__construct("master_kategori_aktifitas");

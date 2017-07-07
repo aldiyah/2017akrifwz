@@ -5,6 +5,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Back_end extends Lwpustaka_data {
 
     protected $backend_controller_location = "back_end/";
+    protected $myid = 0;
+    protected $pegawai_id = 0;
+    protected $keljab = 0;
 
     public function __construct($cmodul_name = FALSE, $header_title = FALSE) {
         $this->is_front_end = FALSE;
@@ -14,30 +17,12 @@ class Back_end extends Lwpustaka_data {
         if (!$this->is_authenticated()) {
             redirect('login');
         }
+        $this->myid = $this->user_detail['id_user'];
+        if ($this->user_detail['pegawai_id'] != NULL) {
+            $this->pegawai_id = $this->user_detail['pegawai_id'];
+        }
+        $this->keljab = $this->user_detail['keljab_id'];
     }
-
-//    public function access_rules() {
-//        return parent::access_rules(array(
-////            array(
-////                'allow',
-////                'users' => array('*')
-////            ),
-//            array(
-//                'allow',
-//                'actions' => array("login", "logout"),
-//                'users' => array('*')
-//            ),
-//            array(
-//                'allow',
-//                'actions' => array("back_end"),
-//                'roles' => array("administrator"),
-//                'users' => array('@')
-//            )
-//        ));
-//    }
-//    public function can_access(){
-//        return TRUE;
-//    }
 
     private function init_back_end() {
         $this->my_location = "back_end/";

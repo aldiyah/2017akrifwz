@@ -18,9 +18,16 @@ $detail = isset($detail) ? $detail : FALSE;
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="col-md-3 col-xs-12 control-label">Kelompok *</label>
+                        <label class="col-md-3 col-xs-12 control-label">Kategori *</label>
                         <div class="col-md-6 col-xs-12">                                            
-                            <select name="kategori_id" id="slc-kategori" class="form-control select2-basic">
+                            <?php
+                            $pilihan = array();
+                            $pilihan[''] = 'Pilih Kelompok';
+                            foreach ($kategori as $row) {
+                                $pilihan[$row->kategori_id] = $row->kategori_nama;
+                            }
+                            echo form_dropdown('kategori_id', $pilihan, set_value('kategori_id', $detail ? $detail->kategori_id : ''), 'class="form-control select" data-live-search="true"');
+                            ?>
                             </select>
                             <span class="help-block">Isikan sesuai dengan kelompok aktifitas.</span>
                         </div>
@@ -28,35 +35,50 @@ $detail = isset($detail) ? $detail : FALSE;
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Kode Aktifitas *</label>
                         <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="aktifitas_kode" class="form-control" value="<?php echo $detail ? $detail->aktifitas_kode : ""; ?>">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_input('aktifitas_kode', set_value('aktifitas_kode', $detail ? $detail->aktifitas_kode : ''), 'class="form-control"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan kode aktifitas.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Nama Aktifitas *</label>
                         <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="aktifitas_nama" class="form-control" value="<?php echo $detail ? $detail->aktifitas_nama : ""; ?>">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_input('aktifitas_nama', set_value('aktifitas_nama', $detail ? $detail->aktifitas_nama : ''), 'class="form-control"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan nama aktifitas.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Output Aktifitas *</label>
                         <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="aktifitas_output" class="form-control" value="<?php echo $detail ? $detail->aktifitas_output : ""; ?>">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_input('aktifitas_output', set_value('aktifitas_output', $detail ? $detail->aktifitas_output : ''), 'class="form-control"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan output aktifitas.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Waktu Aktifitas *</label>
                         <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="aktifitas_waktu" class="form-control" value="<?php echo $detail ? $detail->aktifitas_waktu : ""; ?>">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_input('aktifitas_waktu', set_value('aktifitas_waktu', $detail ? $detail->aktifitas_waktu : ''), 'class="form-control"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan waktu aktifitas.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Tingkat Kesulitan *</label>
                         <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="aktifitas_kesulitan" class="form-control" value="<?php echo $detail ? $detail->aktifitas_kesulitan : ""; ?>">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_input('aktifitas_kesulitan', set_value('aktifitas_kesulitan', $detail ? $detail->aktifitas_kesulitan : ''), 'class="form-control"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan tingkat kesulitan aktifitas.</span>
                         </div>
                     </div>

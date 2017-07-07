@@ -15,6 +15,7 @@ class Msaktifitas extends Back_end {
         $this->set("bread_crumb", array(
             "#" => $this->_header_title
         ));
+        $this->set('access_rules', $this->access_rules());
     }
 
     public function detail($id = FALSE) {
@@ -23,9 +24,8 @@ class Msaktifitas extends Back_end {
             "back_end/" . $this->_name => $this->_header_title,
             "#" => 'Formulir ' . $this->_header_title
         ));
-        $this->set("additional_js", "back_end/" . $this->_name . "/js/detail_js");
-        $this->add_cssfiles(array("plugins/select2/select2.min.css"));
-        $this->add_jsfiles(array("plugins/select2/select2.full.min.js"));
+        $this->load->model('model_master_kategori_aktifitas');
+        $this->set('kategori', $this->model_master_kategori_aktifitas->get_all());
     }
 
     public function get_like() {

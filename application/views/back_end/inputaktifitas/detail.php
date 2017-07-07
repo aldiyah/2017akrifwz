@@ -19,44 +19,76 @@ $detail = isset($detail) ? $detail : FALSE;
                 <div class="panel-body">
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Pilih Aktifitas *</label>
-                        <div class="col-md-6 col-xs-12">                                            
-                            <select name="aktifitas_id" id="slc-aktifitas" class="form-control select2-basic">
-                            </select>
+                        <div class="col-md-6 col-xs-12">
+                            <?php
+                            $pilihan = array();
+                            $pilihan[''] = 'Pilih Aktifitas';
+                            foreach ($aktifitas as $row) {
+                                $pilihan[$row->aktifitas_id] = $row->aktifitas_nama;
+                            }
+                            echo form_dropdown('aktifitas_id', $pilihan, set_value('aktifitas_id', $detail ? $detail->aktifitas_id : ''), 'class="form-control select" data-live-search="true"');
+                            ?>
                             <span class="help-block">Isikan sesuai dengan nama aktifitas.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Tanggal Aktifitas *</label>
-                        <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="tr_aktifitas_tanggal" class="form-control" value="<?php echo $detail ? $detail->tr_aktifitas_tanggal : ""; ?>">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
+                                <?php echo form_input('tr_aktifitas_tanggal', set_value('tr_aktifitas_tanggal', $detail ? $detail->tr_aktifitas_tanggal : $tanggal ? $tanggal : ''), 'class="form-control datepicker"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan tanggal aktifitas (yyyy-mm-dd).</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Aktifitas Volume *</label>
-                        <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="tr_aktifitas_volume" class="form-control" value="<?php echo $detail ? $detail->tr_aktifitas_volume : ""; ?>">
+                        <div class="col-md-6 col-xs-12">
+                            <?php
+                            $pilihan = array();
+                            $pilihan[''] = 'Pilih Volume';
+                            $pilihan[1] = '1 Volume';
+                            $pilihan[2] = '2 Volume';
+                            $pilihan[3] = '3 Volume';
+                            $pilihan[4] = '4 Volume';
+                            $pilihan[5] = '5 Volume';
+                            $pilihan[6] = '6 Volume';
+                            $pilihan[7] = '7 Volume';
+                            $pilihan[8] = '8 Volume';
+                            $pilihan[9] = '9 Volume';
+                            $pilihan[10] = '10 Volume';
+                            echo form_dropdown('tr_aktifitas_volume', $pilihan, set_value('tr_aktifitas_volume', $detail ? $detail->tr_aktifitas_volume : ''), 'class="form-control select"');
+                            ?>
                             <span class="help-block">Isikan sesuai dengan volume aktifitas.</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Aktifitas Mulai *</label>
-                        <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="tr_aktifitas_mulai" class="form-control" value="<?php echo $detail ? $detail->tr_aktifitas_mulai : ""; ?>">
+                        <div class="col-md-6 col-xs-12">        
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                <?php echo form_input('tr_aktifitas_mulai', set_value('tr_aktifitas_mulai', $detail ? $detail->tr_aktifitas_mulai : ''), 'class="form-control timepicker24"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan waktu mulai aktifitas (hh:mm:ss).</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Aktifitas Selesai *</label>
-                        <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="tr_aktifitas_selesai" class="form-control" value="<?php echo $detail ? $detail->tr_aktifitas_selesai : ""; ?>">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                                <?php echo form_input('tr_aktifitas_selesai', set_value('tr_aktifitas_selesai', $detail ? $detail->tr_aktifitas_selesai : ''), 'class="form-control timepicker24"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan waktu selesai aktifitas (hh:mm:ss).</span>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Keterangan Aktifitas *</label>
-                        <div class="col-md-6 col-xs-12">                                            
-                            <input type="text" name="tr_aktifitas_keterangan" class="form-control" value="<?php echo $detail ? $detail->tr_aktifitas_keterangan : ""; ?>">
+                        <div class="col-md-6 col-xs-12">
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_input('tr_aktifitas_keterangan', set_value('tr_aktifitas_keterangan', $detail ? $detail->tr_aktifitas_keterangan : ''), 'class="form-control"'); ?>
+                            </div>
                             <span class="help-block">Isikan sesuai dengan keterangan input aktifitas.</span>
                         </div>
                     </div>

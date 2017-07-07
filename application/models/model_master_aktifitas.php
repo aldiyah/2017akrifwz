@@ -36,8 +36,6 @@ class Model_master_aktifitas extends Master_aktifitas {
 
     public function before_data_insert($data = FALSE) {
         $data["aktifitas_bobot"] = $data["aktifitas_waktu"] * $data["aktifitas_kesulitan"];
-        var_dump($data);
-        exit();
         return $data;
     }
 

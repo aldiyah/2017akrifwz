@@ -65,10 +65,10 @@ $current_user_roles = isset($current_user_roles) ? $current_user_roles : "Tamu";
     </head>
     <body class="<?php echo $template_body_class; ?>">
         <!-- START PAGE CONTAINER -->
-        <div class="page-container">
+        <div class="page-container page-navigation-top-fixed">
 
             <!-- START PAGE SIDEBAR -->
-            <div class="page-sidebar">
+            <div class="page-sidebar page-sidebar-fixed scroll">
                 <!-- START X-NAVIGATION -->
                 <?php echo load_partial('template/atlant/menu'); ?>
                 <!-- END X-NAVIGATION -->
@@ -109,6 +109,21 @@ $current_user_roles = isset($current_user_roles) ? $current_user_roles : "Tamu";
                         <div class="pull-right">
                             <a href="<?php echo base_url('back_bone/member/logout'); ?>" class="btn btn-success btn-lg">Ya</a>
                             <button class="btn btn-default btn-lg mb-control-close">Tidak</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="message-box animated fadeIn" data-sound="alert" id="mb-success">
+            <div class="mb-container">
+                <div class="mb-middle">
+                    <div class="mb-title"><span class="fa fa-check"></span> Input data sukses...!</div>
+                    <div class="mb-content">
+                        <p>Data yang Anda masukkan sudah tersimpan di database.</p>
+                    </div>
+                    <div class="mb-footer">
+                        <div class="pull-right">
+                            <button class="btn btn-default btn-lg mb-control-close">Tutup</button>
                         </div>
                     </div>
                 </div>
