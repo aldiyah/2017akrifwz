@@ -29,7 +29,7 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
                                         <?php if ($access_rules[1][0] == 'allow'): ?>
                                             <a href="<?php echo base_url('back_end/' . $active_modul . '/detail'); ?>" class="btn btn-default"><span class="fa fa-plus"></span> Tambah</a>
                                         <?php endif; ?>
-                                        <a href="<?php echo base_url('back_end/klpaktifitas'); ?>" class="btn btn-default"><span class="fa fa-list"></span> Kelompok</a>
+                                    <!--<a href="<?php echo base_url('back_end/klpaktifitas'); ?>" class="btn btn-default"><span class="fa fa-list"></span> Kelompok</a>-->
                                     </div>
                                 </div>
                             </div>
@@ -44,7 +44,6 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
                                     <th>NO</th>
                                     <th>KELOMPOK</th>
                                     <th>DINAS</th>
-                                    <th>KODE</th>
                                     <th>NAMA</th>
                                     <th>OUTPUT</th>
                                     <th>WAKTU</th>
@@ -68,28 +67,25 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
                                                 <?php echo beautify_str($record->dinas_id) ?>
                                             </td>
                                             <td>
-                                                <?php echo beautify_str($record->aktifitas_kode) ?>
+                                                <?php echo beautify_str($record->usulan_nama) ?>
                                             </td>
                                             <td>
-                                                <?php echo beautify_str($record->aktifitas_nama) ?>
-                                            </td>
-                                            <td>
-                                                <?php echo beautify_str($record->aktifitas_output) ?>
+                                                <?php echo beautify_str($record->usulan_output) ?>
                                             </td>
                                             <td class="text-center">
-                                                <?php echo $record->aktifitas_waktu . ' menit' ?>
+                                                <?php echo $record->usulan_waktu . ' menit' ?>
                                             </td>
                                             <td class="text-center">
-                                                <?php echo beautify_str($record->record_active == 1 ? "Aktif" : "Pasif") ?>
+                                                <?php echo beautify_str($record->usulan_status == 0 ? "Diajukan" : "Disetujui") ?>
                                             </td>
                                             <?php if ($access_rules[2][0] == 'allow' || $access_rules[3][0] == 'allow'): ?>
                                                 <td class="text-center">
                                                     <div class="btn-group btn-group-sm btn-group-icon">
                                                         <?php if ($access_rules[2][0] == 'allow'): ?>
-                                                            <a class="btn btn-default" href="<?php echo base_url("back_end/" . $active_modul . "/detail") . "/" . $record->aktifitas_id; ?>"><span class="fa fa-edit"></span></a>
+                                                            <a class="btn btn-default" href="<?php echo base_url("back_end/" . $active_modul . "/detail") . "/" . $record->usulan_id; ?>"><span class="fa fa-edit"></span></a>
                                                         <?php endif; ?>
                                                         <?php if ($access_rules[3][0] == 'allow'): ?>
-                                                            <a class="btn btn-default btn-hapus-row" href="javascript:void(0);" rel="<?php echo base_url("back_end/" . $active_modul . "/delete") . "/" . $record->aktifitas_id; ?>"><span class="fa fa-times-circle"></span></a>
+                                                            <a class="btn btn-default btn-hapus-row" href="javascript:void(0);" rel="<?php echo base_url("back_end/" . $active_modul . "/delete") . "/" . $record->usulan_id; ?>"><span class="fa fa-times-circle"></span></a>
                                                             <?php endif; ?>
                                                     </div>
                                                 </td>

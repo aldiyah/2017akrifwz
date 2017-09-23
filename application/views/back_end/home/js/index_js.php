@@ -14,10 +14,12 @@
             $('.open').text('Lihat Kegiatan');
             $('.open').removeClass('open');
             $(parent).append(kotak);
+            $('<span>').addClass('fa').addClass('fa-cog').addClass('fa-spin').insertBefore($(el));
             $(el).addClass('open');
             $(el).text('Tutup Info');
             $.get('back_end/home/lihataktifitas/' + id, function (data) {
                 $(kotak).html(data);
+                $('span.fa-spin').remove();
             });
         }
     }

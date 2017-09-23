@@ -42,8 +42,8 @@ $route['default_controller'] = "back_end/home";
 $route['back_end'] = "back_end/home";
 
 $route['back_bone/user'] = "back_bone/member";
-$route['login'] = "back_bone/member/login";
-$route['logout'] = "back_bone/member/logout";
+$route['login'] = "back_end/anggota/login";
+$route['logout'] = "back_end/anggota/logout";
 $route['back_bone/user/(.*)'] = "back_bone/member/$1";
 
 $route['(\w{2})/(.*)'] = '$2';

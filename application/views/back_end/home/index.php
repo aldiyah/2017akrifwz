@@ -7,6 +7,8 @@ $field_id = isset($field_id) ? $field_id : FALSE;
 $paging_set = isset($paging_set) ? $paging_set : FALSE;
 $active_modul = isset($active_modul) ? $active_modul : 'none';
 $next_list_number = isset($next_list_number) ? $next_list_number : 1;
+$pegawai_nip = isset($pegawai_nip) ? $pegawai_nip : '-';
+//var_dump($records);
 ?>
 <div class="page-content-wrap">
     <div class="row">
@@ -20,7 +22,7 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
                         <div class="profile-data-name"><?php echo $current_user_profil_name; ?></div>
                         <div class="profile-data-title" style="color: #FFF;">
                             <div><?php echo $current_user_roles; ?></div>
-                            <div>NIP : 12123123123</div>
+                            <div>NIP : <?php echo $pegawai_nip; ?></div>
                         </div>
                     </div>
                 </div>
@@ -100,7 +102,9 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
                             <div class="list-group-item">
                                 <img src="<?php echo base_url() ?>_assets/uploads/images/users/pria.png" alt="<?php echo $pegawai->pegawai_nama; ?>"/>
                                 <span class="contacts-title"><?php echo beautify_str($pegawai->pegawai_nama); ?></span>
-                                <div class="list-group-controls"><button class="btn btn-default" onclick="lihatAktifitas(this, <?php echo $pegawai->pegawai_id; ?>)">Lihat Aktifitas</button></div>
+                                <div class="list-group-controls">
+                                    <button class="btn btn-default" onclick="lihatAktifitas(this, <?php echo $pegawai->pegawai_id; ?>)">Lihat Aktifitas</button>
+                                </div>
                             </div>
                         <?php endforeach; ?>
                     </div>

@@ -50,21 +50,11 @@ $detail = isset($detail) ? $detail : FALSE;
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-3 col-xs-12 control-label">Kode Aktifitas *</label>
-                        <div class="col-md-6 col-xs-12">                                            
-                            <div class="input-group">
-                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('aktifitas_kode', set_value('aktifitas_kode', $detail ? $detail->aktifitas_kode : ''), 'class="form-control"'); ?>
-                            </div>
-                            <span class="help-block">Isikan sesuai dengan kode aktifitas.</span>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-md-3 col-xs-12 control-label">Nama Aktifitas *</label>
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('aktifitas_nama', set_value('aktifitas_nama', $detail ? $detail->aktifitas_nama : ''), 'class="form-control"'); ?>
+                                <?php echo form_input('usulan_nama', set_value('usulan_nama', $detail ? $detail->usulan_nama : ''), 'class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan nama aktifitas.</span>
                         </div>
@@ -74,7 +64,7 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('aktifitas_output', set_value('aktifitas_output', $detail ? $detail->aktifitas_output : ''), 'class="form-control"'); ?>
+                                <?php echo form_input('usulan_output', set_value('usulan_output', $detail ? $detail->usulan_output : ''), 'class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan output aktifitas.</span>
                         </div>
@@ -84,12 +74,13 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('aktifitas_waktu', set_value('aktifitas_waktu', $detail ? $detail->aktifitas_waktu : ''), 'class="form-control"'); ?>
+                                <?php echo form_input('usulan_waktu', set_value('usulan_waktu', $detail ? $detail->usulan_waktu : ''), 'class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan waktu aktifitas.</span>
                         </div>
                     </div>
                 </div>
+                <?php echo form_hidden('pegawai_id', $pegawai_id); ?>
                 <div class="panel-footer">
                     <button type="submit" class="btn-primary btn pull-right">Submit</button>
                     <a href="<?php echo base_url("back_end/" . $active_modul . "/index"); ?>" class="btn-default btn">Batal / Kembali</a>

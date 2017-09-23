@@ -59,7 +59,7 @@ $user_role = isset($user_role) ? $user_role : '';
             </div>
             <div class="login-footer">
                 <div class="pull-left">
-                    &copy; 2016 <?php echo $app_name; ?>
+                    &copy; 2017 <?php echo $app_name; ?>
                 </div>
                 <?php /**
                   <div class="pull-right">

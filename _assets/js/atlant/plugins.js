@@ -502,7 +502,7 @@ $(function () {
                     select: function (date) {
                         var tgl = moment(date).format('YYYY-MM-DD');
 
-                        window.location = js_base_url + "back_end/inputaktifitas/index/" + tgl;
+                        window.location = js_base_url + "back_end/aktifitasharian/index/" + tgl;
 //                        $.ajax({
 //                            type: 'POST',
 //                            url: "inputaktifitas/index/" + tgl,

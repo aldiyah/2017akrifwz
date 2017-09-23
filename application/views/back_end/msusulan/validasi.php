@@ -11,7 +11,7 @@ $detail = isset($detail) ? $detail : FALSE;
             <div class="panel panel-default">
 
                 <div class="panel-heading">
-                    <h3 class="panel-title">Formulir <strong><?php echo $header_title; ?></strong></h3>
+                    <h3 class="panel-title">Validasi <strong>Usulan Aktifitas</strong></h3>
                 </div>
                 <div class="panel-body">
                     <p><?php echo load_partial("back_end/shared/attention_message"); ?></p>
@@ -26,7 +26,7 @@ $detail = isset($detail) ? $detail : FALSE;
                             foreach ($kelompok as $row) {
                                 $pilihan[$row->kelompok_id] = $row->kelompok_nama;
                             }
-                            echo form_dropdown('kelompok_id', $pilihan, set_value('kelompok_id', $detail ? $detail->kelompok_id : ''), 'class="form-control select" data-live-search="true"');
+                            echo form_dropdown('kelompok_id', $pilihan, set_value('kelompok_id', $usulan ? $usulan->kelompok_id : ''), 'class="form-control select" data-live-search="true"');
                             unset($pilihan);
                             ?>
                             </select>
@@ -42,7 +42,7 @@ $detail = isset($detail) ? $detail : FALSE;
                             foreach ($dinas as $row) {
                                 $pilihan[$row->dinas_id] = $row->dinas_nama;
                             }
-                            echo form_dropdown('dinas_id', $pilihan, set_value('dinas_id', $detail ? $detail->dinas_id : ''), 'class="form-control select" data-live-search="true"');
+                            echo form_dropdown('dinas_id', $pilihan, set_value('dinas_id', $usulan ? $usulan->dinas_id : ''), 'class="form-control select" data-live-search="true"');
                             unset($pilihan);
                             ?>
                             </select>
@@ -54,7 +54,7 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('aktifitas_kode', set_value('aktifitas_kode', $detail ? $detail->aktifitas_kode : ''), 'class="form-control"'); ?>
+                                <?php echo form_input('aktifitas_kode', NULL, 'class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan kode aktifitas.</span>
                         </div>
@@ -64,7 +64,7 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('aktifitas_nama', set_value('aktifitas_nama', $detail ? $detail->aktifitas_nama : ''), 'class="form-control"'); ?>
+                                <?php echo form_input('aktifitas_nama', set_value('aktifitas_nama', $usulan ? $usulan->usulan_nama : ''), 'class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan nama aktifitas.</span>
                         </div>
@@ -74,7 +74,7 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('aktifitas_output', set_value('aktifitas_output', $detail ? $detail->aktifitas_output : ''), 'class="form-control"'); ?>
+                                <?php echo form_input('aktifitas_output', set_value('aktifitas_output', $usulan ? $usulan->usulan_output : ''), 'class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan output aktifitas.</span>
                         </div>
@@ -84,7 +84,7 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('aktifitas_waktu', set_value('aktifitas_waktu', $detail ? $detail->aktifitas_waktu : ''), 'class="form-control"'); ?>
+                                <?php echo form_input('aktifitas_waktu', set_value('aktifitas_waktu', $usulan ? $usulan->usulan_waktu : ''), 'class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan waktu aktifitas.</span>
                         </div>

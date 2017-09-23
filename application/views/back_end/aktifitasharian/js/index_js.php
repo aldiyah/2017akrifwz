@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <script type="text/javascript">
-    var uri = '<?php echo base_url() . 'back_end/inputaktifitas' ?>';
+    var uri = '<?php echo base_url() . 'back_end/aktifitasharian' ?>';
     $(document).ready(function () {
     });
 //    function laporanAktifitas(idTugas, idKegiatan) {

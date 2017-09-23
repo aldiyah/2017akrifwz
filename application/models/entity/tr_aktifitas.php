@@ -2,7 +2,7 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Tr_aktifitas extends MY_Model {
+class tr_aktifitas extends MY_Model {
 
     public function __construct() {
         parent::__construct("tr_aktifitas");
@@ -14,8 +14,6 @@ class Tr_aktifitas extends MY_Model {
     protected $attribute_labels = array(
         "tr_aktifitas_id" => array("tr_aktifitas_id", "ID Input Aktifitas"),
         "pegawai_id" => array("pegawai_id", "Pilih Pegawai"),
-        "tugas_id" => array("tugas_id", "Pilih Tugas"),
-        "kegiatan_id" => array("kegiatan_id", "Pilih Kegiatan"),
         "aktifitas_id" => array("aktifitas_id", "Pilih Aktifitas"),
         "tr_aktifitas_tanggal" => array("tr_aktifitas_tanggal", "Tanggal Aktifitas"),
         "tr_aktifitas_volume" => array("tr_aktifitas_volume", "Aktifitas Volume"),
@@ -25,17 +23,13 @@ class Tr_aktifitas extends MY_Model {
         "tr_aktifitas_status" => array("tr_aktifitas_status", "Status Aktifitas")
     );
     protected $rules = array(
-        array("tr_aktifitas_id", ""),
-        array("pegawai_id", ""),
-        array("tugas_id", ""),
-        array("kegiatan_id", ""),
-        array("aktifitas_id", ""),
-        array("tr_aktifitas_tanggal", ""),
-        array("tr_aktifitas_volume", ""),
-        array("tr_aktifitas_mulai", ""),
-        array("tr_aktifitas_selesai", ""),
-        array("tr_aktifitas_keterangan", ""),
-        array("tr_aktifitas_status", "")
+        array("pegawai_id", "required|is_natural_no_zero"),
+        array("aktifitas_id", "required|is_natural_no_zero"),
+        array("tr_aktifitas_tanggal", "required|valid_date[dd/mm/yyyy]"),
+        array("tr_aktifitas_volume", "required|numeric"),
+        array("tr_aktifitas_mulai", "required|valid_time"),
+        array("tr_aktifitas_selesai", "required|valid_time"),
+        array("tr_aktifitas_keterangan", "required|min_length[3]|max_length[200]")
     );
     protected $related_tables = array(
         "master_aktifitas" => array(

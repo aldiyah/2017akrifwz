@@ -17,16 +17,17 @@ $detail = isset($detail) ? $detail : FALSE;
                     <p><?php echo load_partial("back_end/shared/attention_message"); ?></p>
                 </div>
                 <div class="panel-body">
-                    <div class="form-group">
-                        <label class="col-md-3 col-xs-12 control-label">Pilih Aktifitas *</label>
-                        <div class="col-md-6 col-xs-12">
+                    <?php echo form_hidden('pegawai_id', $pegawai_id); ?>
+                    <div class = "form-group">
+                        <label class = "col-md-3 col-xs-12 control-label">Pilih Aktifitas *</label>
+                        <div class = "col-md-6 col-xs-12">
                             <?php
                             $pilihan = array();
                             $pilihan[''] = 'Pilih Aktifitas';
                             foreach ($aktifitas as $row) {
                                 $pilihan[$row->aktifitas_id] = $row->aktifitas_nama;
                             }
-                            echo form_dropdown('aktifitas_id', $pilihan, set_value('aktifitas_id', $detail ? $detail->aktifitas_id : ''), 'class="form-control select" data-live-search="true"');
+                            echo form_dropdown('aktifitas_id', $pilihan, set_value('aktifitas_id', $detail ? $detail->aktifitas_id : ''), 'class="form-control select" data-live-search="true" onchange="getWaktu(this)"');
                             ?>
                             <span class="help-block">Isikan sesuai dengan nama aktifitas.</span>
                         </div>
@@ -36,9 +37,8 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-calendar"></span></span>
-                                <?php echo form_input('tr_aktifitas_tanggal', set_value('tr_aktifitas_tanggal', $detail ? $detail->tr_aktifitas_tanggal : $tanggal ? $tanggal : ''), 'class="form-control datepicker"'); ?>
+                                <?php echo form_input('tr_aktifitas_tanggal', set_value('tr_aktifitas_tanggal', $detail ? $detail->tr_aktifitas_tanggal : $tanggal ? $tanggal : ''), 'id="tr_aktifitas_tanggal" class="form-control" readonly'); ?>
                             </div>
-                            <span class="help-block">Isikan sesuai dengan tanggal aktifitas (yyyy-mm-dd).</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -67,7 +67,7 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">        
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                                <?php echo form_input('tr_aktifitas_mulai', set_value('tr_aktifitas_mulai', $detail ? $detail->tr_aktifitas_mulai : ''), 'class="form-control timepicker24"'); ?>
+                                <?php echo form_input('tr_aktifitas_mulai', set_value('tr_aktifitas_mulai', $detail ? $detail->tr_aktifitas_mulai : ''), 'id="tr_aktifitas_mulai" class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan waktu mulai aktifitas (hh:mm:ss).</span>
                         </div>
@@ -77,7 +77,7 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                                <?php echo form_input('tr_aktifitas_selesai', set_value('tr_aktifitas_selesai', $detail ? $detail->tr_aktifitas_selesai : ''), 'class="form-control timepicker24"'); ?>
+                                <?php echo form_input('tr_aktifitas_selesai', set_value('tr_aktifitas_selesai', $detail ? $detail->tr_aktifitas_selesai : ''), 'id="tr_aktifitas_selesai" class="form-control" readonly'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan waktu selesai aktifitas (hh:mm:ss).</span>
                         </div>
