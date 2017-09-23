@@ -39,16 +39,16 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
                                     <?php foreach ($records as $key => $record): ?>
                                         <tr>
                                             <td>
-                                                <?php echo beautify_str($record->pegawai_nama) ?><br>
-                                                NIP : <?php echo beautify_str($record->pegawai_nip) ?>
+                                                <?php echo beautify_str($record->namaLengkap) ?><br>
+                                                NIP : <?php echo beautify_str($record->nip) ?>
                                             </td>
                                             <td>
-                                                <?php echo beautify_str($record->jabatan_nama) ?>
+                                                <?php echo beautify_str($record->namaJabatan) ?>
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group btn-group-sm">
-                                                    <button class="btn btn-default" onclick="tambahAktifitas(<?php echo $record->pegawai_id ?>)"><i class="fa fa-plus-circle"></i> Aktifitas</button>
-                                                    <button class="btn btn-default" onclick="lihatAktifitas(this,<?php echo $record->pegawai_id ?>)"><i class="fa fa-folder"></i> Aktifitas</button>
+                                                    <button class="btn btn-default" onclick="tambahAktifitas(<?php echo $record->idIdentitas ?>)"><i class="fa fa-plus-circle"></i> Aktifitas</button>
+                                                    <button class="btn btn-default" onclick="lihatAktifitas(this,<?php echo $record->idIdentitas ?>)"><i class="fa fa-folder"></i> Aktifitas</button>
                                                 </div>
                                             </td>
                                         </tr>

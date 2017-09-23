@@ -43,7 +43,7 @@ class aktifitasharian extends Back_end {
         $this->set('absensi', TRUE);
 //        $this->set('aktifitas', $this->model_master_aktifitas->get_all());
 //        $this->set('access_rules', $this->access_rules());
-        $this->set('records', $records);
+//        $this->set('records', $records);
         $this->set('additional_js', 'back_end/' . $this->_name . '/js/index_js');
         $this->add_jsfiles(array('atlant/plugins/fullcalendar/fullcalendar.min.js'));
         $this->add_jsfiles(array('atlant/plugins/fullcalendar/lang/id.js'));

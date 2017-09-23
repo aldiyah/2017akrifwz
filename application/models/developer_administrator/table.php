@@ -33,10 +33,10 @@ class table extends LWS_Model {
     public $fields = array();
     public $fields_data = array();
     public $primary_key_field_name = '';
-    public $string_class_model_pattern = '<?php  if (!defined("BASEPATH")){exit("No direct script access allowed");}  class %s extends |PREFIX|Model {  %s  }  ?>';
+    public $string_class_model_pattern = '<?php defined("BASEPATH") OR exit("No direct script access allowed"); class %s extends |PREFIX|Model { %s }';
     public $string_class_model = '';
     public $string_class_body = '';
-    public $string_construct_pattern = 'public function __construct()  { parent::__construct("%s"); $this->primary_key = "%s"; } ';
+    public $string_construct_pattern = 'public $sort_by = ""; public $sort_mode = "asc"; public function __construct()  { parent::__construct("%s"); $this->primary_key = "%s"; $this->attribute_labels = array_merge_recursive($this->_continuously_attribute_label, $this->attribute_labels); $this->rules = array_merge_recursive($this->_continuously_rules, $this->rules);} ';
     public $string_construct = '';
     public $string_attribute_label_pattern = '"%s" => array("%s","%s"), ';
     public $string_attribute_label = '';

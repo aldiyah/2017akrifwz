@@ -57,6 +57,16 @@ $detail = isset($detail) ? $detail : FALSE;
                             <span class="help-block">Isikan sesuai dengan TKD dalam rupiah.</span>
                         </div>
                     </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Status *</label>
+                        <div class="col-md-6 col-xs-12">                                            
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_dropdown('max_poin_status', array('Aktif', 'Tidak'), set_value('max_poin_status', $detail ? $detail->max_poin_status : ''), 'class="form-control"'); ?>
+                            </div>
+                            <span class="help-block">Isikan sesuai dengan status Max Poin.</span>
+                        </div>
+                    </div>
                 </div>
                 <div class="panel-footer">
                     <button type="submit" class="btn-primary btn pull-right">Submit</button>

@@ -26,7 +26,7 @@ class wrought extends LWS_Model {
         return count($this->tables) > 0;
     }
 
-    public function create_models($just_entity=FALSE) {
+    public function create_models($just_entity = FALSE) {
         $this->get_models_content();
         foreach (array_keys($this->models_content) as $table_name) {
             $this->create_model_for_table($table_name, $just_entity);
@@ -34,6 +34,7 @@ class wrought extends LWS_Model {
     }
 
     public function get_models_content() {
+        var_dump($this->get_schema_name());
         if (!array_have_value($this->models_content)) {
             $this->get_all_tables();
             if ($this->is_table_has_value()) {
@@ -55,7 +56,7 @@ class wrought extends LWS_Model {
         $this->create_file($dir, $content);
         if ($generate_models) {
             $dir = APPPATH . 'models/model_' . $table_name . '.php';
-            $content = '<?php  if (!defined("BASEPATH")){exit("No direct script access allowed");}  include_once "entity/' . $table_name . '.php";  class model_' . $table_name . ' extends ' . $table_name . ' {  public function __construct(){ parent::__construct(); }  }  ?>';
+            $content = '<?php  defined("BASEPATH") OR exit("No direct script access allowed");  include_once "entity/' . $table_name . '.php";  class model_' . $table_name . ' extends ' . $table_name . ' {  public function __construct(){ parent::__construct(); }  }';
             $this->create_file($dir, $content);
         }
     }

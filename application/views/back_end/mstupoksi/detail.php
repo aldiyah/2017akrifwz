@@ -18,13 +18,13 @@ $detail = isset($detail) ? $detail : FALSE;
                 </div>
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="col-md-3 col-xs-12 control-label">Uraian Tupoksi *</label>
+                        <label class="col-md-3 col-xs-12 control-label">Nama Tupoksi *</label>
                         <div class="col-md-6 col-xs-12">                                            
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
-                                <?php echo form_input('tupoksi_uraian', set_value('tupoksi_uraian', $detail ? $detail->tupoksi_uraian : ''), 'class="form-control"'); ?>
+                                <?php echo form_input('tupoksi_nama', set_value('tupoksi_nama', $detail ? $detail->tupoksi_nama : ''), 'class="form-control"'); ?>
                             </div>
-                            <span class="help-block">Isikan sesuai dengan uraian Tupoksi.</span>
+                            <span class="help-block">Isikan sesuai dengan nama Tupoksi.</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -45,6 +45,16 @@ $detail = isset($detail) ? $detail : FALSE;
                                 <?php echo form_input('tupoksi_tahun', set_value('tupoksi_tahun', $detail ? $detail->tupoksi_tahun : ''), 'class="form-control"'); ?>
                             </div>
                             <span class="help-block">Isikan sesuai dengan tahun dasar hukum Tupoksi.</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 col-xs-12 control-label">Status *</label>
+                        <div class="col-md-6 col-xs-12">                                            
+                            <div class="input-group">
+                                <span class="input-group-addon"><span class="fa fa-pencil"></span></span>
+                                <?php echo form_dropdown('tupoksi_status', array('Aktif', 'Tidak'), set_value('tupoksi_status', $detail ? $detail->tupoksi_status : ''), 'class="form-control"'); ?>
+                            </div>
+                            <span class="help-block">Isikan sesuai dengan status Tupoksi.</span>
                         </div>
                     </div>
                 </div>

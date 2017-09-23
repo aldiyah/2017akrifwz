@@ -1,11 +1,13 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <script type="text/javascript">
     var uri = '<?php echo base_url() . 'back_end/setaktifitas' ?>';
+    
     $(document).ready(function () {
     });
+    
     function lihatAktifitas(el, idPegawai) {
         var baris = $('<tr>').addClass('container-aktifitas');
-        baris.append($('<td colspan="3">').addClass('list-aktifitas').html('Sedang mengambil data...'));
+        baris.append($('<td colspan="3">').addClass('list-aktifitas').append($('<span>').addClass('fa').addClass('fa-cog').addClass('fa-spin')).append(' Sedang mengambil data...'));
         if ($(el).hasClass('open')) {
             $('.container-aktifitas').remove();
             $('button.open').html('<i class="fa fa-folder"></i> Aktifitas');
@@ -38,7 +40,7 @@
             url: uri + '/tambahaktifitas/' + idPegawai + '/' + idAktifitas,
             success: function (data) {
                 if (data > 0) {
-                    $('.list-aktifitas').html('Sedang mengambil data...');
+                    $('.list-aktifitas').append($('<span>').addClass('fa').addClass('fa-cog').addClass('fa-spin')).append(' Sedang menambah data...');
                     $.get(uri + '/getaktifitas/' + idPegawai, function (data) {
                         $('.list-aktifitas').html(data);
                     });
@@ -64,7 +66,7 @@
             url: uri + '/tambahkegiatan/' + idSetAktif + '/' + idKegiatan,
             success: function (data) {
                 if (data > 0) {
-                    $('.list-aktifitas').html('Sedang mengambil data...');
+                    $('.list-aktifitas').append($('<span>').addClass('fa').addClass('fa-cog').addClass('fa-spin')).append(' Sedang menambah data...');
                     $.get(uri + '/getaktifitas/' + idPegawai, function (data) {
                         $('.list-aktifitas').html(data);
                     });

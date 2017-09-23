@@ -4,7 +4,7 @@ if (!defined('BASEPATH'))
     exit('No direct script access allowed');
 
 class Model_generator extends LWS_Controller {
-    
+
     public function access_rules() {
         return array(
             array(
@@ -25,7 +25,9 @@ class Model_generator extends LWS_Controller {
     }
 
     public function index() {
-        echo "halo";exit;
+        var_dump($this->wrought->get_models_content());
+        echo "halo";
+        exit;
     }
 
     /**
@@ -51,7 +53,7 @@ class Model_generator extends LWS_Controller {
             $generate_model = FALSE;
         }
         $table_name = $this->input->get('table_name');
-        
+
         if (!$generate_single) {
             $this->wrought->create_models($generate_model);
         } else {

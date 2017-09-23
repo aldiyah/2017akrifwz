@@ -20,32 +20,20 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
 
                 <div class="block">
                     <?php echo load_partial("back_end/shared/attention_message"); ?>
-                    <p>Gunakan Formulir ini untuk melakukan pencarian pada halaman ini.</p>
                     <form class="form-horizontal">
                         <div class="form-group">
-                            <?php if ($access_rules[1][0] == 'allow'): ?>
-                                <div class="col-md-8">
-                                <?php else: ?>
-                                    <div class="col-md-12">
-                                    <?php endif; ?>
-                                    <div class="input-group">
-                                        <div class="input-group-addon">
-                                            <span class="fa fa-search"></span>
-                                        </div>
-                                        <input type="text" name="keyword" value="<?php echo $keyword; ?>" class="form-control" placeholder="Silahkan masukkan kata kunci disini"/>
-                                        <div class="input-group-btn">
-                                            <button class="btn btn-primary">Cari</button>
-                                        </div>
+                            <div class="col-md-12">
+                                <div class="input-group">
+                                    <input type="text" name="keyword" value="<?php echo $keyword; ?>" class="form-control" placeholder="Silahkan masukkan kata kunci disini"/>
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-default"><span class="fa fa-search"></span> Cari</button>
+                                        <?php if ($access_rules[1][0] == 'allow'): ?>
+                                            <a href="<?php echo base_url('back_end/' . $active_modul . '/detail'); ?>" class="btn btn-default"><span class="fa fa-plus"></span> Tambah</a>
+                                        <?php endif; ?>
                                     </div>
                                 </div>
-                                <?php if ($access_rules[1][0] == 'allow'): ?>
-                                    <div class="col-md-4">
-                                        <a href="<?php echo base_url('back_end/' . $active_modul . '/detail'); ?>" class="btn btn-success btn-block">
-                                            <span class="fa fa-plus"></span> Tambah baru
-                                        </a>
-                                    </div>
-                                <?php endif; ?>
                             </div>
+                        </div>
                     </form>
                 </div>
                 <div class="block">
@@ -81,12 +69,12 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
                                                 </td>
                                                 <?php if ($access_rules[2][0] == 'allow' || $access_rules[3][0] == 'allow'): ?>
                                                     <td class="text-center">
-                                                        <div class="btn-group btn-group-sm">
+                                                        <div class="btn-group btn-group-sm btn-group-icon">
                                                             <?php if ($access_rules[2][0] == 'allow'): ?>
-                                                                <a class="btn btn-default" href="<?php echo base_url("back_end/" . $active_modul . "/detail") . "/" . $record->kegiatan_id; ?>">Ubah</a>
+                                                                <a class="btn btn-default" href="<?php echo base_url("back_end/" . $active_modul . "/detail") . "/" . $record->kegiatan_id; ?>"><span class="fa fa-edit"></span></a>
                                                             <?php endif; ?>
                                                             <?php if ($access_rules[3][0] == 'allow'): ?>
-                                                                <a class="btn btn-default btn-hapus-row" href="javascript:void(0);" rel="<?php echo base_url("back_end/" . $active_modul . "/delete") . "/" . $record->kegiatan_id; ?>">Hapus</a>
+                                                                <a class="btn btn-default btn-hapus-row" href="javascript:void(0);" rel="<?php echo base_url("back_end/" . $active_modul . "/delete") . "/" . $record->kegiatan_id; ?>"><span class="fa fa-times-circle"></span></a>
                                                             <?php endif; ?>
                                                         </div>
                                                     </td>

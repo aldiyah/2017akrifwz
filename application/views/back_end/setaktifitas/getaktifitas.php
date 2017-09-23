@@ -1,5 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <?php $next_list_number = isset($next_list_number) ? $next_list_number : 1; ?>
+<?php
+//var_dump($records);
+?>
 <div class="table-responsive">
     <table class="table table-top table-bordered table-condensed table-hover">
 <!--        <thead>

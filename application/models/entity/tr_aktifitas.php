@@ -27,8 +27,8 @@ class tr_aktifitas extends MY_Model {
         array("aktifitas_id", "required|is_natural_no_zero"),
         array("tr_aktifitas_tanggal", "required|valid_date[dd/mm/yyyy]"),
         array("tr_aktifitas_volume", "required|numeric"),
-        array("tr_aktifitas_mulai", "required|valid_time"),
-        array("tr_aktifitas_selesai", "required|valid_time"),
+        array("tr_aktifitas_mulai", "required"),
+        array("tr_aktifitas_selesai", "required"),
         array("tr_aktifitas_keterangan", "required|min_length[3]|max_length[200]")
     );
     protected $related_tables = array(

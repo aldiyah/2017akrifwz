@@ -7,6 +7,7 @@ $field_id = isset($field_id) ? $field_id : FALSE;
 $paging_set = isset($paging_set) ? $paging_set : FALSE;
 $active_modul = isset($active_modul) ? $active_modul : 'none';
 $next_list_number = isset($next_list_number) ? $next_list_number : 1;
+//var_dump($records);
 ?>
 <div class="row">
     <div class="col-md-12">
@@ -18,14 +19,9 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
             </div>
             <div class="panel-body">
                 <div class="block">
-                    <div class="col-md-8">
+                    <div class="col-md-12">
                         Daftar Kegiatan Bawahan Anda.<br>
                         Silahkan klik <strong>Tampilkan Kegiatan</strong> untuk melihat kegiatan pegawai terkait.
-                    </div>
-                    <div class="col-md-4">
-                        <button type="button" class="btn btn-success btn-block" onclick="tambahPegawai()">
-                            <span class="fa fa-plus"></span> Tambah Bawahan
-                        </button>
                     </div>
                 </div>
                 <div class="block-full-width">
@@ -43,16 +39,16 @@ $next_list_number = isset($next_list_number) ? $next_list_number : 1;
                                     <?php foreach ($records as $key => $record): ?>
                                         <tr>
                                             <td>
-                                                <?php echo beautify_str($record->pegawai_nama) ?><br>
-                                                NIP : <?php echo beautify_str($record->pegawai_nip) ?>
+                                                <?php echo beautify_str($record->namaLengkap) ?><br>
+                                                NIP : <?php echo beautify_str($record->nip) ?>
                                             </td>
                                             <td>
-                                                <?php echo beautify_str($record->jabatan_nama) ?>
+                                                <?php echo beautify_str($record->namaJabatan) ?>
                                             </td>
                                             <td class="text-center">
                                                 <div class="btn-group btn-group-sm">
-                                                    <button class="btn btn-default" onclick="tambahKegiatan(<?php echo $record->pegawai_id ?>)">Tambah Kegiatan</button>
-                                                    <button class="btn btn-default" onclick="lihatKegiatan(this,<?php echo $record->pegawai_id ?>)">Lihat Kegiatan</button>
+                                                    <button class="btn btn-default" onclick="tambahKegiatan(<?php echo $record->idIdentitas ?>)"><i class="fa fa-plus-circle"></i> Kegiatan</button>
+                                                    <button class="btn btn-default" onclick="lihatKegiatan(this,<?php echo $record->idIdentitas ?>)"><i class="fa fa-folder"></i> Kegiatan</button>
                                                 </div>
                                             </td>
                                         </tr>

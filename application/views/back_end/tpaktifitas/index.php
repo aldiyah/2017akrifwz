@@ -1,0 +1,119 @@
+<?php
+$header_title = isset($header_title) ? $header_title : '';
+$records = isset($records) ? $records : FALSE;
+$detail_uraian = isset($detail_uraian) ? $detail_uraian : FALSE;
+$active_modul = isset($active_modul) ? $active_modul : 'none';
+$next_list_number = isset($next_list_number) ? $next_list_number : 1;
+//var_dump($records);
+?>
+
+<div class="row">
+    <div class="col-md-12">
+
+        <div class="panel panel-default">
+
+            <div class="panel-heading">
+                <h3 class="panel-title"><strong><?php echo $header_title; ?></strong> <span id="ajax-loading" style="display: none;"><i class="fa fa-cog fa-spin"></i></span></h3>
+                <div class="btn-group pull-right">
+                    <a href="<?php echo base_url("back_end/tpuraian/index/" . $detail_uraian->tupoksi_id); ?>" class="btn btn-default"><i class="fa fa-reply"></i></a>
+                    <!--<a href="<?php echo base_url('back_end/' . $active_modul . '/detail/' . $detail_uraian->uraian_id); ?>" class="btn btn-default"><i class="fa fa-plus-circle"></i></a>-->
+                    <button class="btn btn-default" onclick="tambahAktifitas(<?php echo $detail_uraian->uraian_id ?>)"><i class="fa fa-plus-circle"></i></button>
+                </div>
+                
+            </div>
+            <div class="panel-body">
+                <div class="block">
+                    <table>
+                        <tr>
+                            <td>Nama Tupoksi</td>
+                            <td>:</td>
+                            <td><?php echo beautify_str($detail_uraian->tupoksi_nama); ?></td>
+                        </tr>
+                        <tr>
+                            <td>Uraian Tupoksi</td>
+                            <td>:</td>
+                            <td><?php echo beautify_str($detail_uraian->uraian_uraian); ?></td>
+                        </tr>
+                    </table>
+                </div>
+                <table id="detail-uraian" class="table table-striped table-condensed table-bordered no-footer">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Kategori</th>
+                            <th>Nama Aktifitas</th>
+                            <th>Satuan</th>
+                            <th>Waktu</th>
+                            <th>Kesulitan</th>
+                            <th>Bobot</th>
+                            <th>Aksi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php if ($records): ?>
+                            <?php foreach ($records as $record): ?>
+                                <tr>
+                                    <td class="text-right">
+                                        <?php echo $next_list_number; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo beautify_str($record->kategori_nama) ?>
+                                    </td>
+                                    <td>
+                                        <?php echo beautify_str($record->aktifitas_nama) ?>
+                                    </td>
+                                    <td>
+                                        <?php echo beautify_str($record->aktifitas_output) ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php echo beautify_str($record->aktifitas_waktu) ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php echo beautify_str($record->aktifitas_kesulitan) ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <?php echo beautify_str($record->aktifitas_bobot) ?>
+                                    </td>
+                                    <?php if ($access_rules[2][0] == 'allow' || $access_rules[3][0] == 'allow'): ?>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-sm btn-group-icon">
+                                                <?php if ($access_rules[2][0] == 'allow'): ?>
+                                                    <!--<a class="btn btn-default" href="<?php echo base_url("back_end/" . $active_modul . "/detail") . "/" . $detail_tupoksi->tupoksi_id . "/" . $record->uraian_id; ?>"><i class="fa fa-edit"></i></a>-->
+                                                <?php endif; ?>
+                                                <?php if ($access_rules[1][0] == 'allow'): ?>
+                                                    <!--<a class="btn btn-default" href="<?php echo base_url("back_end/tpaktifitas/index") . "/" . $record->uraian_id; ?>"><i class="fa fa-list"></i></a>-->
+                                                <?php endif; ?>
+                                                <?php if ($access_rules[3][0] == 'allow'): ?>
+                                                    <a class="btn btn-default btn-hapus-row" href="javascript:void(0);" rel="<?php echo base_url("back_end/" . $active_modul . "/delete") . "/" . $record->tp_aktifitas_id; ?>"><i class="fa fa-times-circle"></i></a>
+                                                <?php endif; ?>
+                                            </div>
+                                        </td>
+                                    <?php endif; ?>
+                                </tr>
+                                <?php $next_list_number++; ?>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <tr>
+                                <td colspan="8">Belum ada data...!</td>
+                            </tr>
+                        <?php endif; ?>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal" id="tambah-aktifitas" tabindex="-1" role="dialog" aria-labelledby="defModalHead" aria-hidden="true">
+    <div class="modal-dialog">
+        <form id="form-tambah-aktifitas" enctype="multipart/form-data" method="POST" class="form-horizontal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="defModalHead">Pilih Aktifitas</h4>
+                </div>
+                <div class="modal-body">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
