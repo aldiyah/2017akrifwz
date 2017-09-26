@@ -46,8 +46,26 @@ class model_tr_aktifitas extends tr_aktifitas {
         $where = $this->table_name . ".pegawai_id = " . $id_pegawai;
         $where .= " and EXTRACT(MONTH FROM " . $this->table_name . ".tr_aktifitas_tanggal) = " . $bulan;
         $where .= " and EXTRACT(YEAR FROM " . $this->table_name . ".tr_aktifitas_tanggal) = " . $tahun;
+        if ($validasi) {
+            $where .= " and " . $this->table_name . ".tr_aktifitas_status) = 0";
+        }
         $this->get_select_referenced_table();
         return $this->get_where($where, '*');
+    }
+
+    public function validasi_aktifitas($id_pegawai = FALSE, $batas = FALSE) {
+        $where = $this->table_name . ".pegawai_id = " . $id_pegawai;
+        $where .= " and " . $this->table_name . ".tr_aktifitas_tanggal > '" . $batas . "'";
+        $where .= " and " . $this->table_name . ".tr_aktifitas_status = 0";
+        $this->get_select_referenced_table();
+        return $this->get_where($where, '*');
+    }
+
+    public function validasi($id = FALSE, $value = FALSE) {
+        $this->db->set('tr_aktifitas_status', $value);
+        $this->db->where('tr_aktifitas_id', $id);
+        $this->db->update($this->table_name);
+        return $this->db->affected_rows() > 0 ? TRUE : FALSE;
     }
 
 }

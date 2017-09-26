@@ -39,6 +39,14 @@ class tr_aktifitas extends MY_Model {
                 "aktifitas_nama"
             ),
             "referenced" => "LEFT"
+        ),
+        "master_pegawai" => array(
+            "fkey" => "pegawai_id",
+            "columns" => array(
+                "pegawai_nip",
+                "pegawai_nama"
+            ),
+            "referenced" => "LEFT"
         )
     );
     protected $attribute_types = array();

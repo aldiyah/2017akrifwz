@@ -140,6 +140,15 @@ $config['modul_action_configuration'] = array(
         "delete" => array(""),
         "read" => array("index", "lihataktifitas")
     ),
+    "validasiaktifitas" => array(
+        "insert" => array(""),
+        "update" => array("validasi", "reject"),
+        "delete" => array(""),
+        "read" => array("index")
+    ),
+    
+    
+    
     
     
     "tpaktifitas" => array(

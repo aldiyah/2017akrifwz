@@ -12,10 +12,10 @@ class Home extends Back_end {
 
     public function __construct() {
         parent::__construct();
-//        $this->load->model(array(
-//            'model_master_pegawai',
-//            'model_tr_aktifitas'
-//        ));
+        $this->load->model(array(
+            'model_master_pegawai',
+            'model_tr_aktifitas'
+        ));
     }
 
     public function index() {
@@ -30,7 +30,7 @@ class Home extends Back_end {
 //        $bawahan = isset($data['anakBuahOut']->anakBuahList->anakBuahDetail) ? $data['anakBuahOut']->anakBuahList->anakBuahDetail : FALSE;
 
         $bawahan[] = (object) array(
-                    'idIdentitas' => "685",
+                    'idIdentitas' => "1",
                     'namaLengkap' => "EDI WAHYU",
                     'nip' => "196101181992031004",
                     'kdJabatan' => "300105",
@@ -38,7 +38,7 @@ class Home extends Back_end {
                     'kdOrganisasi' => "367401000000"
         );
         $bawahan[] = (object) array(
-                    'idIdentitas' => "361",
+                    'idIdentitas' => "2",
                     'namaLengkap' => "HJ. OOM KOMALASARI",
                     'nip' => "196109111986082001",
                     'kdJabatan' => "300105",
@@ -80,9 +80,7 @@ class Home extends Back_end {
     }
 
     public function lihataktifitas($id_pegawai) {
-        $bulan = date('n');
-        $data['utama'] = $this->model_tr_aktifitas->get_aktifitas($id_pegawai, $bulan, TRUE);
-        $data['umum'] = $this->model_tr_aktifitas->get_aktifitas($id_pegawai, $bulan, FALSE);
+        $data['aktifitas'] = $this->model_tr_aktifitas->get_aktifitas($id_pegawai, date('n'), date('Y'));
         return $this->load->view('back_end/home/lihataktifitas', $data);
     }
 
