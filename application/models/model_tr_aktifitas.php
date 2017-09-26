@@ -35,12 +35,17 @@ class model_tr_aktifitas extends tr_aktifitas {
         $where = $this->table_name . ".pegawai_id = " . $id_pegawai;
         $where .= " and " . $this->table_name . ".tr_aktifitas_tanggal = '" . $tanggal . "'";
         $this->get_select_referenced_table();
+//        $data = $this->get_where($where, '*');
+//        var_dump($this->db->last_query());
+//        var_dump($data);
+//        exit();
         return $this->get_where($where, '*');
     }
 
-    public function get_aktifitas($id_pegawai = FALSE, $bulan = FALSE) {
+    public function get_aktifitas($id_pegawai = FALSE, $bulan = 1, $tahun = 2017) {
         $where = $this->table_name . ".pegawai_id = " . $id_pegawai;
         $where .= " and EXTRACT(MONTH FROM " . $this->table_name . ".tr_aktifitas_tanggal) = " . $bulan;
+        $where .= " and EXTRACT(YEAR FROM " . $this->table_name . ".tr_aktifitas_tanggal) = " . $tahun;
         $this->get_select_referenced_table();
         return $this->get_where($where, '*');
     }

@@ -2,7 +2,14 @@
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class aktifitasharian extends Back_end {
+/**
+ * Modul Aktifitas Harian
+ * 
+ * Dalam modul ini, user bisa menginput aktifitas hariannya
+ * 
+ * @author Rinaldi
+ */
+class Aktifitasharian extends Back_end {
 
     public $model = 'model_tr_aktifitas';
 
@@ -13,13 +20,16 @@ class aktifitasharian extends Back_end {
         ));
     }
 
+    /**
+     * Index Aktifitas Harian
+     * @param date $date Tanggal input aktifitas harian
+     */
     public function index($date = FALSE) {
         $tgl = $date != FALSE ? $date : date('Y-m-d');
         $this->set('tanggal', $tgl);
         $this->set('header_title', $this->_header_title . ' per ' . $tgl);
         $this->set('keyword', NULL);
         $records = $this->model_tr_aktifitas->get_aktifitas_harian($this->pegawai_id, $tgl);
-
 
 //        $utama = FALSE;
 //        if ($aktifitas) {
@@ -43,7 +53,7 @@ class aktifitasharian extends Back_end {
         $this->set('absensi', TRUE);
 //        $this->set('aktifitas', $this->model_master_aktifitas->get_all());
 //        $this->set('access_rules', $this->access_rules());
-//        $this->set('records', $records);
+        $this->set('records', $records);
         $this->set('additional_js', 'back_end/' . $this->_name . '/js/index_js');
         $this->add_jsfiles(array('atlant/plugins/fullcalendar/fullcalendar.min.js'));
         $this->add_jsfiles(array('atlant/plugins/fullcalendar/lang/id.js'));
@@ -53,6 +63,7 @@ class aktifitasharian extends Back_end {
     }
 
     public function detail($date = FALSE, $id = FALSE) {
+//        var_dump($this->user_detail);
         parent::detail($id, array("pegawai_id", "aktifitas_id", "tr_aktifitas_tanggal", "tr_aktifitas_volume", "tr_aktifitas_mulai", "tr_aktifitas_selesai", "tr_aktifitas_keterangan"));
         $tgl = $date != FALSE ? $date : date('Y-m-d');
         $this->set('pegawai_id', $this->user_detail['pegawai_id']);

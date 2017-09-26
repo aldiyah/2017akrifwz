@@ -134,6 +134,12 @@ $config['modul_action_configuration'] = array(
         "delete" => array("delete"),
         "read" => array("index", "get_waktu")
     ),
+    "aktifitasbawahan" => array(
+        "insert" => array(""),
+        "update" => array(""),
+        "delete" => array(""),
+        "read" => array("index", "lihataktifitas")
+    ),
     
     
     "tpaktifitas" => array(

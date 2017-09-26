@@ -2,6 +2,7 @@
 $header_title = isset($header_title) ? $header_title : '';
 $active_modul = isset($active_modul) ? $active_modul : 'none';
 $detail = isset($detail) ? $detail : FALSE;
+var_dump($detail);
 ?>
 
 <div class="row">
@@ -27,7 +28,7 @@ $detail = isset($detail) ? $detail : FALSE;
                             foreach ($aktifitas as $row) {
                                 $pilihan[$row->aktifitas_id] = $row->aktifitas_nama;
                             }
-                            echo form_dropdown('aktifitas_id', $pilihan, set_value('aktifitas_id', $detail ? $detail->aktifitas_id : ''), 'class="form-control select" data-live-search="true" onchange="getWaktu(this)"');
+                            echo form_dropdown('aktifitas_id', $pilihan, set_value('aktifitas_id', $detail ? $detail->aktifitas_id : ''), 'id="aktifitas_id" class="form-control select" data-live-search="true"');
                             ?>
                             <span class="help-block">Isikan sesuai dengan nama aktifitas.</span>
                         </div>
@@ -67,9 +68,9 @@ $detail = isset($detail) ? $detail : FALSE;
                         <div class="col-md-6 col-xs-12">        
                             <div class="input-group">
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
-                                <?php echo form_input('tr_aktifitas_mulai', set_value('tr_aktifitas_mulai', $detail ? $detail->tr_aktifitas_mulai : ''), 'id="tr_aktifitas_mulai" class="form-control"'); ?>
+                                <?php echo form_input('tr_aktifitas_mulai', set_value('tr_aktifitas_mulai', $detail ? $detail->tr_aktifitas_mulai : ''), 'id="tr_aktifitas_mulai" class="form-control" onchange="hitungSelesai()"'); ?>
                             </div>
-                            <span class="help-block">Isikan sesuai dengan waktu mulai aktifitas (hh:mm:ss).</span>
+                            <span class="help-block">Isikan sesuai dengan waktu mulai aktifitas (hh:mm).</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -79,7 +80,7 @@ $detail = isset($detail) ? $detail : FALSE;
                                 <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
                                 <?php echo form_input('tr_aktifitas_selesai', set_value('tr_aktifitas_selesai', $detail ? $detail->tr_aktifitas_selesai : ''), 'id="tr_aktifitas_selesai" class="form-control" readonly'); ?>
                             </div>
-                            <span class="help-block">Isikan sesuai dengan waktu selesai aktifitas (hh:mm:ss).</span>
+                            <span class="help-block">Otomatis terisi dengan waktu selesai aktifitas (hh:mm).</span>
                         </div>
                     </div>
                     <div class="form-group">
@@ -94,7 +95,7 @@ $detail = isset($detail) ? $detail : FALSE;
                     </div>
                 </div>
                 <div class="panel-footer">
-                    <button type="submit" class="btn-primary btn pull-right">Submit</button>
+                    <input type="submit" value="Submit" class="btn-primary btn pull-right">
                     <a href="<?php echo base_url("back_end/" . $active_modul . "/index"); ?>" class="btn-default btn">Batal / Kembali</a>
                 </div>
             </div>
